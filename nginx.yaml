@@ -1,0 +1,13 @@
+- name: install and run nginx
+  host: web
+  become: yes
+  tasks:
+  - name: install nginx
+    ansible.ping.dnf:
+    name: nginx
+    state: latest
+  - name: start nginx
+    ansible.ping.service: 
+    name: nginx
+    state: started
+    enable: yes 
